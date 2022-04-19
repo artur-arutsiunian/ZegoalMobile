@@ -18,7 +18,7 @@ public class ScheduleTasksPageObject extends MainPageObject {
     CHOOSE_CHECKBOX = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.CheckBox",
     SAVE_BUTTON = "//*[contains(@text,'Save')]",
     CONFIRM_CHECKS = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.ImageView[2]",
-    TASKS_TAB_AFTER_COMPLETE_TASK = "//android.widget.LinearLayout[@content-desc='Tasks']";
+    TASKS_TAB_IS_SELECTED = "//android.widget.LinearLayout[@content-desc='Tasks']";
 
 
  public void moveToTask() throws InterruptedException{
@@ -73,8 +73,8 @@ public class ScheduleTasksPageObject extends MainPageObject {
         );
 
      Thread.sleep(2000);
-        this.waitForElementPresent(
-                By.xpath(TASKS_TAB_AFTER_COMPLETE_TASK),
+        this.waitForElementPresentAndConsistAttribute(
+                By.xpath(TASKS_TAB_IS_SELECTED),
                 "can't find tasks tab",
                 10
         );
